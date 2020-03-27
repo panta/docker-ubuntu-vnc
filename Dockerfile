@@ -6,7 +6,7 @@ RUN echo "Europe/Rome" > /etc/timezone
 
 RUN apt-get update -q && \
 	export DEBIAN_FRONTEND=noninteractive && \
-    apt-get install -y --no-install-recommends tzdata
+    apt-get install -y --no-install-recommends apt-utils tzdata
 
 RUN dpkg-reconfigure -f noninteractive tzdata
 
@@ -19,6 +19,7 @@ RUN apt-get update -q && \
     apt-get install -y --no-install-recommends xfonts-base xfonts-75dpi xfonts-100dpi && \
     apt-get install -y --no-install-recommends python-pip python-dev python-qt4 && \
     apt-get install -y --no-install-recommends libssl-dev && \
+    apt-get install -y --no-install-recommends net-tools dnsutils iputils-ping traceroute && \
     apt-get autoclean -y && \
     apt-get autoremove -y && \
     apt-get clean && \
